@@ -130,7 +130,7 @@ max_region = data['source_to'].max()
 print(max_region)
 
 
-# In[17]:
+# In[27]:
 
 
 label = []
@@ -161,12 +161,39 @@ for i in range(len(source)):
 
 #################### Sankey Diagram Trial 1##################
 
-def update_source_target(user):
+output = dict()
+
+output.update({'links_dict': dict()})
+
+def update_source_target(src, t):
     try:
-        print(user)
+        print(src, t)
+        # If this source is already in links_dict...
+        if src in output['links_dict']:
+            if t in output['links_dict'][src]:
+                # Increment count of users with this source/target pair by 1,
+                output['links_dict'][src][t]['unique_users'] += 1
+            # but if the target is not already associated to this source...
+            else:
+                 # ...we create a new key for this target, for this source, and initiate it with 1 user and the time from source to target
+                output['links_dict'][src].update({t:
+                    dict(
+                        {'unique_users': 1
+                        })
+                })
+        # ...but if this source isn't already available in the links_dict, we create its key and the key of this source's target, and we initiate it with 1 user and the time from source to target
+        else:
+            output['links_dict'].update({src: dict({t: dict(
+                {'unique_users': 1})})})
+
     except Exception as e:
         pass
-data2 = data.apply(lambda x: update_source_target(x['source_to']), axis = 1)
+
+data2 = data.apply(lambda x: update_source_target(x['source_to'], x['target_from']), axis = 1)
+
+print('Lambda Function Working... \n\n')
+for key, value in output['links_dict'].items():
+    print(key, value)
 
 
 # In[137]:
