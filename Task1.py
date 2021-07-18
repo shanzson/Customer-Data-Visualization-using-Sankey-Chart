@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[52]:
 
 
 import pandas as pd
@@ -34,7 +34,7 @@ data['To'] = data['To'].astype(str).astype(int)
 print(data.dtypes)
 
 
-# In[2]:
+# In[53]:
 
 
 num_bins = 100
@@ -47,7 +47,7 @@ plt.legend(legend)
 plt.show()
 
 
-# In[3]:
+# In[54]:
 
 
 num_bins = 100
@@ -60,7 +60,7 @@ plt.legend(legend)
 plt.show()
 
 
-# In[4]:
+# In[55]:
 
 
 num_bins = 200
@@ -73,7 +73,7 @@ plt.legend(legend)
 plt.show()
 
 
-# In[5]:
+# In[56]:
 
 
 print('Sorting...')
@@ -82,19 +82,19 @@ data.sort_values(['userid', 'From', 'To'], ascending=[True, True, True], inplace
 # grouped.head()
 
 
-# In[6]:
+# In[57]:
 
 
 plt.boxplot(data['To'])
 
 
-# In[7]:
+# In[58]:
 
 
 plt.boxplot(data['From'])
 
 
-# In[32]:
+# In[59]:
 
 
 data = data.sort_values('userid')
@@ -114,15 +114,47 @@ def mark_region(x):
             return current_rank
     
     
-# # Apply the mark_region function 
+# Apply the mark_region function 
 data['source_to'] = data['To'].apply(mark_region)
-# data['target_from'] = data['To'].apply(mark_region)
+data['target_from'] = data['From'].apply(mark_region)
 
-# Converting Source_to from float to integer
-# data['source_to'] = data['source_to'].astype(int)
-
+# Confirming the absence of NAN values
 print("Presence of NAN values : \n", data.isnull().any())
 data.head(100)
 
 
+# In[62]:
+
+
+max_region = data['source_to'].max()
+print(max_region)
+
+
+# In[65]:
+
+
+label = []
+for i in range(1, max_region+1):
+    label.append(str(i))
+print(label)
+    
+node = dict(
+    pad = 15,
+    thickness = 20,
+    line = dict(color = "black", width = 0.5),
+    label = label,
+    color = "blue"
+)
+
+# output = dict()
+# output.update({'nodes_dict': dict()})
+# i = 0
+    
+# output.update({'links_dict': dict()})
+
+# def update_source_target(user):
+#     try:
+#         source_index
+        
+# grouped.apply(lambda user: update_source_target(user)) 
 
