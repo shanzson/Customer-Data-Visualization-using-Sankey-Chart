@@ -47,6 +47,14 @@ In order to plot the Sankey chart, the data points need to be divided into regio
   The **incoming flow count**, **outgoing flow count** and the **total number of users** passing through any region can be found out by clicking on the label itself. Here we can see that the total number of unique users passing through __Region Two__ is **80**.
 <img src="./Images/highest_overall.png">
   
+## Primary packages Used
+- pandas
+- matplotlib
+- plotly
+
+## References
+- [Sankey diagram using Plotly](https://plotly.com/python/sankey-diagram/)
+  
 ## Contributors
 <table>
   <tr>
