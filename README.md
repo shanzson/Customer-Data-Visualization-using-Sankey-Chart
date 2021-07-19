@@ -54,6 +54,9 @@ In order to plot the Sankey chart, the data points need to be divided into regio
 
 ## References
 - [Sankey diagram using Plotly](https://plotly.com/python/sankey-diagram/)
+- [Sankey diagrams in Python](https://towardsdatascience.com/visualizing-in-app-user-journey-using-sankey-diagrams-in-python-8373a7bb2d22)
+- [Lambda and Apply function](https://towardsdatascience.com/apply-and-lambda-usage-in-pandas-b13a1ea037f7)
+- [Axis in pandas](https://www.dataday.life/notes/data-engineering-python/difference-between-axis-0-axis-1-python-pandas/)
   
 ## Contributors
 <table>
