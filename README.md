@@ -24,11 +24,16 @@ Customer-Data-Visualization-using-Sankey-Chart
 
 ## Plotting the Sankey Chart
   In order to plot the Sankey chart, the data points need to be divided into regions. We will be plotting will be plotting the 'To' values from the data as source for the Sankey diagram and 'From' values from the data as target. In order to do this, we will need to make regions so that we can 'label' the Sankey chart. The following regions or labels have been used for these data values-
-| Left |  Center  | Right |
-|:-----|:--------:|------:|
-| L0   | **bold** | $1600 |
-| L1   |  `code`  |   $12 |
-| L2   | _italic_ |    $1 |
+|    Label     |      Range     | 
+|:-------------|:--------------:|
+|   Region1    | **100 to 114** | 
+|   Region2    | **115 to 129** |  
+|   Region3    | **130 to 144** |
+|   Region4    | **145 to 159** |   
+|   Region5    | **160 to 174** |   
+|   Region6    | **175 to 189** |
+|   Region7    | **190 to 204** |   
+- As you can see, a difference of 15 is used to divide the data points into these regions. We will be using this to rank the region of both 'To' and 'From' data.
   
 ## Sankey Chart
 <img src="./Images/newplot2.png">
