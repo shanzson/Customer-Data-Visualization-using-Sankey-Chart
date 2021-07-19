@@ -39,12 +39,15 @@ In order to plot the Sankey chart, the data points need to be divided into regio
   
 ## Sankey Chart
   We can see the following Sankey chart below-
+  
 <img src="./Images/newplot2.png">
   
   In order to find out the number of unique users that have gone from one region to another, just hover the arrow over the flow path. Here we can see that **12 unique users** have gone from **Region Two to Region One**.
+  
 <img src="./Images/hover.png">
   
   The **incoming flow count**, **outgoing flow count** and the **total number of users** passing through any region can be found out by clicking on the label itself. Here we can see that the total number of unique users passing through __Region Two__ is **80**.
+  
 <img src="./Images/highest_overall.png">
   
 ## Primary packages Used
