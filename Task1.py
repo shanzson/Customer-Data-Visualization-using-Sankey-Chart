@@ -192,6 +192,22 @@ for i in range(n):
 # print(sources)
 # print(targets)
 
+# Ignore sources and targets that are in same region
+rem_indices = []
+for i in range(n):
+    if sources[i] == targets[i]:
+        rem_indices.append(i)
+
+updated_sources = []
+updated_targets = []
+
+for i in range(n):
+    if i in rem_indices:
+        continue
+    else:
+        updated_sources.append(sources[i])
+        updated_targets.append(targets[i])
+
 import plotly.graph_objects as go
 import chart_studio.plotly as py
 import plotly
@@ -218,8 +234,8 @@ fig = go.Figure(data=[go.Sankey(
       color = "blue"
     ),
     link = dict(
-      source = sources, # indices correspond to labels, eg A1, A2, A1, B1, ...
-      target = targets,
+      source = updated_sources,
+      target = updated_targets,
       value = values
   ))])
 
