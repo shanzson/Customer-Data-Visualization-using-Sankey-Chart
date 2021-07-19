@@ -61,7 +61,6 @@ plt.show()
 
 # Sorting data
 print('Sorting...')
-# data.sort_values(['userid', 'From', 'To'], ascending=[True, True, True], inplace=True)
 
 # Plotting boxplots
 plt.boxplot(data['To'])
@@ -70,13 +69,18 @@ plt.boxplot(data['From'])
 # Sort data according to userid
 data = data.sort_values('userid')
 
+# Adding values to region_rank to calculate rank
+# Here the regions are divided by a distance of 15
+# So the rank of the region with value 100 will be 0,
+# 115 will be 1, 132 will be 2 and so on.
 region_rank = []
 for i in range(99, 210, 15):
     region_rank.append(i)
 
 print(region_rank)
 
-
+# mark_region function calculates the actual
+# rank of the region of values
 def mark_region(x):
     current_rank = -1 # As indices start from 0
     for i in region_rank:
@@ -94,16 +98,12 @@ data['target_from'] = data['From'].apply(mark_region)
 print("Presence of NAN values : \n", data.isnull().any())
 data.head(100)
 
-# In[134]:
-
-
 max_region = data['source_to'].max()
 print(max_region)
 
-#################### Computing Source and Target ##################
-
+# creating output dict
+# This will help to keep track of all paths taken by users
 output = dict()
-
 output.update({'links_dict': dict()})
 
 def update_source_target(src, t):
@@ -132,15 +132,14 @@ def update_source_target(src, t):
 
 data2 = data.apply(lambda x: update_source_target(x['source_to'], x['target_from']), axis = 1)
 
-print('Lambda Function Working... \n\n')
+# Source and Target's unique combinations are printed here
 for key, value in output['links_dict'].items():
     print(key, value)
 
+# Making lists of labels, sources, targets and values
 labels = []
-# for i in range(1, 8):
-#     labels.append(str(i))
-targets = []
 sources = []
+targets = []
 values = []
 
 for source_key, source_value in output['links_dict'].items():
@@ -153,20 +152,23 @@ for source_key, source_value in output['links_dict'].items():
 sum = 0
 for i in values:
     sum += i
-print(sum)
+num_rows = data.shape[0]
+print(num_rows == sum)
 
-print('############### Finalizing values #################')
+# The 7 regions are assigned here need a multiple
+# of same region as user can travel from and to any region
 labels = ['Region One', 'Region Two', 'Region Three',
            'Region Four', 'Region Five', 'Region Six', 'Region Seven',
           'Region One', 'Region Two', 'Region Three', 'Region Four',
          'Region Five', 'Region Six', 'Region Seven']
-# print(labels)
+
+# In Sankey, the source is always smaller than target parameter
+# So we increment source if it is smaller than target but
+# final region remains the same for it
 n = len(sources)
 for i in range(n):
     if sources[i] > targets[i]:
         targets[i]+=7
-# print(sources)
-# print(targets)
 
 # Ignore sources and targets that are in same region
 rem_indices = []
@@ -187,10 +189,12 @@ for i in range(n):
 # Selecting colors in HEX format
 palette = ['50BE97', 'E4655C', 'FCC865',
            'BFD6DE', '3E5066', '353A3E', 'E6E6E6']
+
 #  Here, the colors are passed as HEX. This loop will convert from HEX to RGB:
 for i, col in enumerate(palette):
     palette[i] = tuple(int(col[i:i+2], 16) for i in (0, 2, 4))
 print(palette)
+
 # The colors for the regions are repeated
 palette = 2*palette
 print(palette)
@@ -198,7 +202,7 @@ colors = []
 for color in palette:
     colors.append('rgb' + str(color))
 
-
+# Plotting the Sankey Chart
 import plotly.graph_objects as go
 
 fig = go.Figure(data=[go.Sankey(
