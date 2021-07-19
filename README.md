@@ -8,22 +8,22 @@ Customer-Data-Visualization-using-Sankey-Chart
 </h1>
 
 ## Introduction
-  The data consists of three columns- userid, To and From. To visualize and analyze the data this data- histograms, boxplots and Sankey Chart has been used.
+- The data consists of three columns- userid, To and From. To visualize and analyze the data this data- histograms, boxplots and Sankey Chart has been used.
 
 ## Histograms
-  Histograms allow us to see the frequency of data points that lie within a certain range.
+- Histograms allow us to see the frequency of data points that lie within a certain range.
 <img width="500" src="./Images/histogram1.png">
 <img width="500" src="./Images/histogram2.png">
 <img width="500" src="./Images/histogram3.png">
   
 ## Box plots
-  Here, the boxplots of to and from data give us the minimum and maximum values of To and From data which will help us in Plotting the Sankey Chart
+- Here, the boxplots of to and from data give us the minimum and maximum values of To and From data which will help us in Plotting the Sankey Chart
 
 <img width="420" src="./Images/boxplot1.png">
 <img width="420" src="./Images/boxplot2.png">
 
 ## Plotting the Sankey Chart
-  In order to plot the Sankey chart, the data points need to be divided into regions. We will be plotting will be plotting the 'To' values from the data as source for the Sankey diagram and 'From' values from the data as target. In order to do this, we will need to make regions so that we can 'label' the Sankey chart. The following regions or labels have been used for these data values-
+- In order to plot the Sankey chart, the data points need to be divided into regions. We will be plotting will be plotting the 'To' values from the data as source for the Sankey diagram and 'From' values from the data as target. In order to do this, we will need to make regions so that we can 'label' the Sankey chart. The following regions or labels have been used for these data values-
 |    Label     |      Range     | 
 |:-------------|:--------------:|
 |   Region1    | **100 to 114** | 
