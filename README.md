@@ -19,8 +19,16 @@ Customer-Data-Visualization-using-Sankey-Chart
 ## Box plots
   Here, the boxplots of to and from data give us the minimum and maximum values of To and From data which will help us in Plotting the Sankey Chart
 
-<img width="430" src="./Images/boxplot1.png">
-<img width="430" src="./Images/boxplot2.png">
+<img width="420" src="./Images/boxplot1.png">
+<img width="420" src="./Images/boxplot2.png">
+
+## Plotting the Sankey Chart
+  In order to plot the Sankey chart, the data points need to be divided into regions. We will be plotting will be plotting the 'To' values from the data as source for the Sankey diagram and 'From' values from the data as target. In order to do this, we will need to make regions so that we can 'label' the Sankey chart. The following regions or labels have been used for these data values-
+| Left |  Center  | Right |
+|:-----|:--------:|------:|
+| L0   | **bold** | $1600 |
+| L1   |  `code`  |   $12 |
+| L2   | _italic_ |    $1 |
   
 ## Sankey Chart
 <img src="./Images/newplot2.png">
