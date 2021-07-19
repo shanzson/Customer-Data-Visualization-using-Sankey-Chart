@@ -23,7 +23,8 @@ Customer-Data-Visualization-using-Sankey-Chart
 <img width="420" src="./Images/boxplot2.png">
 
 ## Plotting the Sankey Chart
-- In order to plot the Sankey chart, the data points need to be divided into regions. We will be plotting will be plotting the 'To' values from the data as source for the Sankey diagram and 'From' values from the data as target. In order to do this, we will need to make regions so that we can 'label' the Sankey chart. The following regions or labels have been used for these data values-
+In order to plot the Sankey chart, the data points need to be divided into regions. We will be plotting will be plotting the 'To' values from the data as source for the Sankey diagram and 'From' values from the data as target. In order to do this, we will need to make regions so that we can 'label' the Sankey chart. The following regions or labels have been used for these data values-
+  
 |    Label     |      Range     | 
 |:-------------|:--------------:|
 |   Region1    | **100 to 114** | 
@@ -33,7 +34,8 @@ Customer-Data-Visualization-using-Sankey-Chart
 |   Region5    | **160 to 174** |   
 |   Region6    | **175 to 189** |
 |   Region7    | **190 to 204** |   
-- As you can see, a difference of 15 is used to divide the data points into these regions. We will be using this to rank the region of both 'To' and 'From' data.
+
+  As you can see, a difference of 15 is used to divide the data points into these regions. We will be using this to rank the region of both 'To' and 'From' data.
   
 ## Sankey Chart
 <img src="./Images/newplot2.png">
