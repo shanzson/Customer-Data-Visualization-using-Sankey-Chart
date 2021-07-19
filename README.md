@@ -8,10 +8,10 @@ Customer-Data-Visualization-using-Sankey-Chart
 </h1>
 
 ## Introduction
-- The data consists of three columns- userid, To and From. To visualize and analyze the data this data- histograms, boxplots and Sankey Chart has been used.
+  The data consists of three columns- userid, To and From. To visualize and analyze the data this data- histograms, boxplots and Sankey Chart has been.
 
 ## Histograms
-- Histograms allow us to see the frequency of data points that lie within a certain range.
+  Histograms allow us to see the frequency of data points that lie within a certain range.
 <img width="500" src="./Images/histogram1.png">
 <img width="500" src="./Images/histogram2.png">
 <img width="500" src="./Images/histogram3.png">
