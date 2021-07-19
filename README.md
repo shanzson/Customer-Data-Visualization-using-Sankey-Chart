@@ -19,8 +19,8 @@ Customer-Data-Visualization-using-Sankey-Chart
 ## Box plots
   Here, the boxplots of to and from data give us the minimum and maximum values of To and From data which will help us in Plotting the Sankey Chart
 
-<img width="450" src="./Images/boxplot1.png">
-<img width="450" src="./Images/boxplot2.png">
+<img width="430" src="./Images/boxplot1.png">
+<img width="430" src="./Images/boxplot2.png">
   
 ## Sankey Chart
 <img src="./Images/newplot2.png">
