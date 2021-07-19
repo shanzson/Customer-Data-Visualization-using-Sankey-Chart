@@ -1,43 +1,38 @@
-# coding: utf-8
-
-# In[126]:
-
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Read data from csv into pandas dataframe
 data = pd.read_csv('data.csv')[
     ['userid', 'From', 'To']]
 
+# Display the first 10 rows of dataframe
 print(data.head(10))
 
 # Checking if there are NAN values
 print("Presence of NAN values : \n", data.isnull().any())
-
 
 # Function to remove letter from column data
 def remove_letter(val):
     if (val[0] == 'F' or val[0] == 'T'):
         return val[1:]
 
-
+# Use apply function to remove leter
 data['From'] = data['From'].apply(remove_letter)
 data['To'] = data['To'].apply(remove_letter)
 
-print(data.head(10))
-
+# Check the data types of all columns
 print(data.dtypes)
 
 # Converting object datatype to int
 data['From'] = data['From'].astype(str).astype(int)
 data['To'] = data['To'].astype(str).astype(int)
 
-print(data.dtypes)
+# Remove duplicate user id
+data.drop_duplicates('userid', inplace = True)
 
-# In[127]:
-
-
-num_bins = 100
+# Plotting Histograms
+# 1) Histogram of 'To'column data
+num_bins = 50
 to_data = data['To']
 legend = ['To']
 plt.hist([to_data], bins=num_bins, color=['Orange'])
@@ -46,10 +41,7 @@ plt.ylabel("Frequency")
 plt.legend(legend)
 plt.show()
 
-# In[128]:
-
-
-num_bins = 100
+# 2) Histogram of 'From' column data
 from_data = data['From']
 legend = ['From']
 plt.hist([from_data], bins=num_bins, color=['green'])
@@ -58,10 +50,7 @@ plt.ylabel("Frequency")
 plt.legend(legend)
 plt.show()
 
-# In[129]:
-
-
-num_bins = 200
+# 3) Histogram of 'userid' column data
 userid_data = data['userid']
 legend = ['userid']
 plt.hist([userid_data], bins=num_bins, color=['Red'])
@@ -70,28 +59,15 @@ plt.ylabel("Frequency")
 plt.legend(legend)
 plt.show()
 
-# In[130]:
-
-
+# Sorting data
 print('Sorting...')
-data.sort_values(['userid', 'From', 'To'], ascending=[True, True, True], inplace=True)
-# grouped = data.groupby('userid')
-# grouped.head()
+# data.sort_values(['userid', 'From', 'To'], ascending=[True, True, True], inplace=True)
 
-
-# In[131]:
-
-
+# Plotting boxplots
 plt.boxplot(data['To'])
-
-# In[132]:
-
-
 plt.boxplot(data['From'])
 
-# In[133]:
-
-
+# Sort data according to userid
 data = data.sort_values('userid')
 
 region_rank = []
@@ -229,7 +205,7 @@ fig = go.Figure(data=[go.Sankey(
     node = dict(
       pad = 5,
       thickness = 10,
-      line = dict(color = "black", width = 0.5),
+      line = dict(color = "blue", width = 0.5),
       label = labels,
       color = colors
     ),
@@ -240,5 +216,5 @@ fig = go.Figure(data=[go.Sankey(
       hovertemplate='%{value} unique users went from %{source.label} to %{target.label}.<br />'
   ))])
 
-fig.update_layout(autosize=True, title_text="Medium app", font=dict(size=15), plot_bgcolor='white')
+fig.update_layout(autosize=True, title_text="Customer Sankey Chart", font=dict(size=15), plot_bgcolor='white')
 fig.show()
