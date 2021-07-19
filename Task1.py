@@ -208,22 +208,22 @@ for i in range(n):
         updated_sources.append(sources[i])
         updated_targets.append(targets[i])
 
-import plotly.graph_objects as go
-import chart_studio.plotly as py
-import plotly
+# Selecting colors in HEX format
+palette = ['50BE97', 'E4655C', 'FCC865',
+           'BFD6DE', '3E5066', '353A3E', 'E6E6E6']
+#  Here, the colors are passed as HEX. This loop will convert from HEX to RGB:
+for i, col in enumerate(palette):
+    palette[i] = tuple(int(col[i:i+2], 16) for i in (0, 2, 4))
+print(palette)
+# The colors for the regions are repeated
+palette = 2*palette
+print(palette)
+colors = []
+for color in palette:
+    colors.append('rgb' + str(color))
 
-# fig = go.Figure(data=[go.Sankey(
-#     node=dict(
-#         thickness=5,  # default is 20
-#         line=dict(color="black", width=0.05),
-#         label=labels,
-#         color="blue"
-#     ),
-#     link=dict(
-#         source=sources,
-#         target=targets,
-#         value=values
-# ))])
+
+import plotly.graph_objects as go
 
 fig = go.Figure(data=[go.Sankey(
     node = dict(
@@ -231,12 +231,13 @@ fig = go.Figure(data=[go.Sankey(
       thickness = 10,
       line = dict(color = "black", width = 0.5),
       label = labels,
-      color = "blue"
+      color = colors
     ),
     link = dict(
       source = updated_sources,
       target = updated_targets,
-      value = values
+      value = values,
+      hovertemplate='%{value} unique users went from %{source.label} to %{target.label}.<br />'
   ))])
 
 fig.update_layout(autosize=True, title_text="Medium app", font=dict(size=15), plot_bgcolor='white')
