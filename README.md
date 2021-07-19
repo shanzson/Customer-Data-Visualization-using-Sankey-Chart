@@ -13,7 +13,7 @@ Customer-Data-Visualization-using-Sankey-Chart
 ## Histograms
 <img width="500" src="./Images/histogram1.png">
 <img width="500" src="./Images/histogram2.png">
-<img src="./Images/histogram3.png">
+<img width="500" src="./Images/histogram3.png">
   
 ## Box plots
 <img src="./Images/boxplot1.png">
